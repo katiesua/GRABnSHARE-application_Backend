@@ -7,7 +7,7 @@
  * A 401 response clears the session and returns the user to the login screen.
  */
 
-const API_URL = import.meta.env.VITE_API_URL || ''
+const API_URL = import.meta.env.VITE_API_URL ?? ''
 
 const SESSION_KEY = 'grabnshare.session'
 
