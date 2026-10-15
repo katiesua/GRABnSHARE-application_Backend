@@ -1,0 +1,46 @@
+# ---- Secrets / environment ----
+.env
+.env.*
+!.env.example
+
+# ---- Python ----
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- Node / frontend (nested Vite app) ----
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ---- Logs & runtime output ----
+*.log
+*.err
+logs/
+
+# ---- Generated archives (e.g. submission zips) ----
+*.zip
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- Editors / IDEs ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo

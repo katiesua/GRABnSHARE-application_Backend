@@ -1,0 +1,42 @@
+/* ReminderConfirmation */
+.rc-page { min-height: 100vh; background-color: var(--light-grey); }
+.rc-main { max-width: 600px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+
+.rc-confirm { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.rc-confirm-icon { color: #2563EB; margin-bottom: 1.5rem; }
+.rc-confirm-icon svg { animation: rc-pop 0.4s ease-out; }
+@keyframes rc-pop { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.15); } 100% { transform: scale(1); opacity: 1; } }
+.rc-confirm-title { font-size: 2rem; font-weight: 700; color: #2563EB; margin-bottom: 0.5rem; }
+.rc-confirm-message { font-size: 1.05rem; color: var(--dark-grey); line-height: 1.6; margin-bottom: 2rem; max-width: 400px; }
+
+.rc-confirm-card { width: 100%; background-color: var(--white); border-radius: 16px; padding: 1.75rem 2rem; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); border: 1px solid var(--border-grey); margin-bottom: 2rem; text-align: left; }
+.rc-confirm-card-title { font-size: 1.0625rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; }
+.rc-confirm-details { display: flex; flex-direction: column; gap: 0.625rem; }
+.rc-confirm-row { display: flex; align-items: center; gap: 0.5rem; }
+.rc-confirm-icon-row { color: #9CA3AF; flex-shrink: 0; display: flex; }
+.rc-confirm-label { font-size: 0.8125rem; color: #9CA3AF; min-width: 80px; flex-shrink: 0; }
+.rc-confirm-value { font-size: 0.9375rem; color: var(--black); font-weight: 500; }
+.rc-confirm-value--highlight { color: #1E40AF; font-weight: 600; }
+.rc-confirm-divider { width: 100%; height: 1px; background-color: var(--border-grey); margin: 0.375rem 0; }
+
+.rc-confirm-actions { display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%; }
+.rc-confirm-actions .btn3d { width: 100%; }
+.rc-confirm-back-link { font-size: 0.9375rem; font-weight: 600; color: #2563EB; text-decoration: none; transition: color 0.2s ease; }
+.rc-confirm-back-link:hover { color: #1D4ED8; text-decoration: underline; }
+.rc-confirm-back-link:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; border-radius: 4px; }
+
+.rc-not-found { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem; min-height: 40vh; gap: 0.75rem; }
+.rc-not-found-title { font-size: 1.5rem; font-weight: 700; color: #2563EB; }
+.rc-not-found-desc { font-size: 1rem; color: var(--dark-grey); margin-bottom: 1rem; }
+
+@media (max-width: 640px) {
+  .rc-main { padding: 1.5rem 1rem 2.5rem; }
+  .rc-confirm-title { font-size: 1.625rem; }
+  .rc-confirm-card { padding: 1.25rem 1.5rem; }
+  .rc-confirm-label { min-width: 70px; font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  .rc-main { padding: 1rem 0.75rem 1.5rem; }
+  .rc-confirm-title { font-size: 1.375rem; }
+  .rc-confirm-card { padding: 1rem; border-radius: 12px; }
+}

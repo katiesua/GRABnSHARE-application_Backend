@@ -1,0 +1,712 @@
+/* ============================================
+   StudentHome — Student discovery feed
+   ============================================ */
+
+/* ── Page wrapper ─────────────────────────── */
+.st-page {
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.st-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.st-hero {
+  position: relative;
+  background-color: var(--latrobe-red-light);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 2.5rem 3.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+}
+
+.st-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 55%;
+  max-width: 55%;
+}
+
+.st-back-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.st-back-link:hover {
+  color: var(--latrobe-red-hover);
+  text-decoration: underline;
+}
+
+.st-back-link:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.st-hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.st-hero-description {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* ── Hero campus image — blended right ────── */
+.st-hero-image-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.st-hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(to right, #FDEAEA, transparent);
+  z-index: 1;
+}
+
+.st-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Hero decorative circles ──────────────── */
+.st-hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.st-hero-decor--1 {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  left: -40px;
+}
+
+.st-hero-decor--2 {
+  width: 140px;
+  height: 140px;
+  bottom: -50px;
+  left: 40%;
+}
+
+/* ============================================
+   Tab Bar
+   ============================================ */
+.st-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--white);
+  border-radius: 14px;
+  padding: 0.375rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-grey);
+}
+
+.st-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  background: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  transition: all 0.2s ease;
+}
+
+.st-tab:hover {
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+.st-tab--active {
+  background-color: var(--latrobe-red);
+  color: var(--white);
+}
+
+.st-tab--active:hover {
+  background-color: var(--latrobe-red-hover);
+  color: var(--white);
+}
+
+.st-tab:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+.st-tab-label {
+  letter-spacing: 0.04em;
+}
+
+.st-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 0.375rem;
+  border-radius: 12px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: inherit;
+}
+
+.st-tab--active .st-tab-count {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+/* ============================================
+   Feed
+   ============================================ */
+.st-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ============================================
+   NOW Feed Card
+   ============================================ */
+.st-now-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-grey);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.st-now-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(226, 35, 27, 0.2);
+}
+
+.st-now-card:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+.st-now-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.st-now-card-header-left {
+  min-width: 0;
+}
+
+.st-now-card-title {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.st-now-card-org {
+  font-size: 0.875rem;
+  color: var(--dark-grey);
+}
+
+.st-now-card-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.375rem;
+  flex-shrink: 0;
+}
+
+.st-now-card-time {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+}
+
+/* ── Card details ─────────────────────────── */
+.st-now-card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.st-now-card-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--dark-grey);
+}
+
+.st-now-card-detail svg {
+  flex-shrink: 0;
+  color: #9CA3AF;
+}
+
+.st-now-card-detail--diet {
+  background-color: var(--latrobe-red-light);
+  padding: 0.2rem 0.625rem;
+  border-radius: 6px;
+  color: var(--latrobe-red);
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+/* ── Card footer ──────────────────────────── */
+.st-now-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.st-now-card-cta {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  transition: color 0.2s ease;
+}
+
+.st-now-card:hover .st-now-card-cta {
+  color: var(--latrobe-red-hover);
+}
+
+/* ============================================
+   UPCOMING Feed Card
+   ============================================ */
+.st-upcoming-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-grey);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.st-upcoming-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.st-upcoming-card:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+.st-upcoming-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.st-upcoming-card-header-left {
+  min-width: 0;
+}
+
+.st-upcoming-card-title {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.st-upcoming-card-org {
+  font-size: 0.875rem;
+  color: var(--dark-grey);
+}
+
+.st-upcoming-card-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.375rem;
+  flex-shrink: 0;
+}
+
+.st-upcoming-card-time {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+}
+
+.st-upcoming-card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.st-upcoming-card-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  color: var(--dark-grey);
+}
+
+.st-upcoming-card-detail svg {
+  flex-shrink: 0;
+  color: #9CA3AF;
+}
+
+.st-upcoming-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.st-upcoming-card-cta {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #2563EB;
+  transition: color 0.2s ease;
+}
+
+.st-upcoming-card:hover .st-upcoming-card-cta {
+  color: #1D4ED8;
+}
+
+/* ============================================
+   Status Badges
+   ============================================ */
+.st-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.st-status-badge--available {
+  background-color: #F0FDF4;
+  color: #16A34A;
+  border-color: #BBF7D0;
+}
+
+.st-status-badge--low-stock {
+  background-color: #FFF7ED;
+  color: #C2410C;
+  border-color: #FED7AA;
+}
+
+.st-status-badge--upcoming {
+  background-color: #EFF4FF;
+  color: #2563EB;
+  border-color: #BFDBFE;
+}
+
+.st-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.st-status-dot--green {
+  background-color: #16A34A;
+}
+
+.st-status-dot--amber {
+  background-color: #C2410C;
+}
+
+.st-status-dot--blue {
+  background-color: #2563EB;
+}
+
+/* ============================================
+   Empty State
+   ============================================ */
+.st-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-grey);
+}
+
+.st-empty-icon {
+  color: var(--border-grey);
+  margin-bottom: 1.25rem;
+}
+
+.st-empty-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  margin-bottom: 0.375rem;
+}
+
+.st-empty-desc {
+  font-size: 0.9375rem;
+  color: #9CA3AF;
+  line-height: 1.5;
+  max-width: 360px;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .st-main {
+    padding: 1.5rem 1.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .st-hero {
+    padding: 2rem 2.5rem;
+    min-height: 180px;
+  }
+
+  .st-hero-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .st-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .st-hero-description {
+    font-size: 0.95rem;
+  }
+
+  .st-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .st-now-card,
+  .st-upcoming-card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .st-now-card-title,
+  .st-upcoming-card-title {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .st-main {
+    padding: 1rem 1rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .st-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .st-hero-content {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .st-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .st-hero-image-wrapper::before {
+    width: 30%;
+  }
+
+  .st-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .st-hero-description {
+    font-size: 0.875rem;
+  }
+
+  .st-hero-decor {
+    display: none;
+  }
+
+  .st-tabs {
+    border-radius: 12px;
+    padding: 0.25rem;
+  }
+
+  .st-tab {
+    padding: 0.625rem 0.75rem;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+  }
+
+  .st-tab-count {
+    min-width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+  }
+
+  .st-now-card-header,
+  .st-upcoming-card-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .st-now-card-header-right,
+  .st-upcoming-card-header-right {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .st-now-card-details,
+  .st-upcoming-card-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .st-now-card,
+  .st-upcoming-card {
+    padding: 1.125rem 1.25rem;
+  }
+
+  .st-empty {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/* ============================================
+   Responsive — Small phones (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .st-main {
+    padding: 0.75rem 0.75rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .st-hero {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .st-back-link {
+    font-size: 0.8125rem;
+  }
+
+  .st-hero-title {
+    font-size: 1.375rem;
+  }
+
+  .st-hero-description {
+    font-size: 0.8125rem;
+  }
+
+  .st-tab {
+    padding: 0.5rem 0.5rem;
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+
+  .st-tab-count {
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.6875rem;
+  }
+
+  .st-now-card,
+  .st-upcoming-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .st-now-card-title,
+  .st-upcoming-card-title {
+    font-size: 1rem;
+  }
+
+  .st-now-card-detail,
+  .st-upcoming-card-detail {
+    font-size: 0.8125rem;
+  }
+
+  .st-status-badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.625rem;
+  }
+
+  .st-empty {
+    padding: 2.5rem 1rem;
+    border-radius: 12px;
+  }
+
+  .st-empty-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+
+
+

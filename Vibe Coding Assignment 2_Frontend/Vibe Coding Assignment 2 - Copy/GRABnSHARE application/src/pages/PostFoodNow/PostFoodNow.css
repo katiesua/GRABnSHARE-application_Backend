@@ -1,0 +1,774 @@
+/* ============================================
+   PostFoodNow — Post Food Now page
+   ============================================ */
+
+/* ── Page wrapper ─────────────────────────── */
+.pn-page {
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.pn-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.pn-hero {
+  position: relative;
+  background-color: var(--latrobe-red-light);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 2.5rem 3.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 240px;
+}
+
+.pn-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 55%;
+  max-width: 55%;
+}
+
+.pn-back-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.pn-back-link:hover {
+  color: var(--latrobe-red-hover);
+  text-decoration: underline;
+}
+
+.pn-back-link:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.pn-hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.pn-hero-description {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Hero campus image — blended right ────── */
+.pn-hero-image-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.pn-hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(to right, #FDEAEA, transparent);
+  z-index: 1;
+}
+
+.pn-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Hero decorative circles ──────────────── */
+.pn-hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pn-hero-decor--1 {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  left: -40px;
+}
+
+.pn-hero-decor--2 {
+  width: 140px;
+  height: 140px;
+  bottom: -50px;
+  left: 40%;
+}
+
+/* ============================================
+   Progress Steps Indicator
+   ============================================ */
+.pn-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pn-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pn-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pn-step--active {
+  background-color: var(--latrobe-red);
+  color: var(--white);
+}
+
+.pn-step--active .pn-step-number {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+.pn-step--completed {
+  background-color: var(--latrobe-red);
+  color: var(--white);
+  opacity: 0.85;
+}
+
+.pn-step--completed .pn-step-number {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--white);
+}
+
+.pn-step--inactive {
+  background-color: var(--border-grey);
+  color: var(--dark-grey);
+}
+
+.pn-step--inactive .pn-step-number {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--dark-grey);
+}
+
+.pn-step-divider {
+  width: 24px;
+  height: 2px;
+  background-color: var(--border-grey);
+  flex-shrink: 0;
+}
+
+.pn-step-label {
+  white-space: nowrap;
+}
+
+/* ============================================
+   Form Section & Card
+   ============================================ */
+.pn-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.form-card.pn-form-card {
+  max-width: 960px;
+  padding: 2.75rem 3rem;
+}
+
+/* ============================================
+   Form Layout
+   ============================================ */
+.pn-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+
+/* ── Field rows ───────────────────────────── */
+.pn-fields-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.pn-fields-row--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* ── Verified Organiser badge ─────────────── */
+.pn-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  background-color: #F0FDF4;
+  border: 1px solid #86EFAC;
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #16A34A;
+  width: fit-content;
+  margin-top: 0.25rem;
+}
+
+.pn-verified-icon {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   Action Buttons
+   ============================================ */
+.pn-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-grey);
+}
+
+.pn-actions .btn3d {
+  width: auto;
+}
+
+.pn-actions .hgb {
+  width: auto;
+}
+
+.pn-continue-btn {
+  min-width: 200px;
+}
+
+/* ============================================
+   Step 2 Placeholder
+   ============================================ */
+.pn-step2-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  gap: 1rem;
+}
+
+.pn-step2-icon {
+  color: var(--border-grey);
+  margin-bottom: 0.5rem;
+}
+
+.pn-step2-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+}
+
+.pn-step2-desc {
+  font-size: 1rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.pn-back-step-btn {
+  background: none;
+  border: 1.5px solid var(--border-grey);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pn-back-step-btn:hover {
+  border-color: var(--latrobe-red);
+  color: var(--latrobe-red);
+}
+
+.pn-back-step-btn:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+
+
+.pn-optional-label {
+  font-weight: 400;
+  color: var(--dark-grey);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   Dietary Info Note
+   ============================================ */
+.pn-dietary-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  align-self: flex-end;
+}
+
+.pn-dietary-note-icon {
+  font-size: 1rem;
+  color: var(--dark-grey);
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.pn-dietary-note-text {
+  font-size: 0.8125rem;
+  color: var(--dark-grey);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Availability Badge & Row
+   ============================================ */
+.pn-availability-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+}
+
+.pn-availability-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.pn-availability-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  background-color: #F0FDF4;
+  border: 1px solid #86EFAC;
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #16A34A;
+}
+
+.pn-availability-badge--small {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   Transparency Notice
+   ============================================ */
+.pn-transparency-notice {
+  font-size: 0.8125rem;
+  color: #9CA3AF;
+  line-height: 1.5;
+  font-style: italic;
+  padding-top: 0.5rem;
+}
+
+/* ============================================
+   Step 3 — Success Confirmation
+   ============================================ */
+.pn-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.pn-confirm-icon {
+  margin-bottom: 1.5rem;
+  animation: pn-confirm-pop 0.4s ease-out;
+}
+
+@keyframes pn-confirm-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pn-confirm-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #16A34A;
+  margin-bottom: 0.5rem;
+}
+
+.pn-confirm-message {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+
+.pn-confirm-card {
+  width: 100%;
+  background-color: var(--white);
+  border: 1.5px solid var(--border-grey);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.pn-confirm-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+
+.pn-confirm-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.pn-confirm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pn-confirm-label {
+  font-size: 0.9375rem;
+  color: var(--dark-grey);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.pn-confirm-value {
+  font-size: 0.9375rem;
+  color: var(--black);
+  font-weight: 600;
+  text-align: right;
+}
+
+.pn-confirm-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-grey);
+  margin: 0.25rem 0;
+}
+
+.pn-confirm-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.pn-confirm-back-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pn-confirm-back-link:hover {
+  color: var(--latrobe-red);
+  text-decoration: underline;
+}
+
+.pn-confirm-back-link:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .pn-main {
+    padding: 1.5rem 1.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .pn-hero {
+    padding: 2rem 2.5rem;
+    min-height: 200px;
+  }
+
+  .pn-hero-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .pn-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .pn-hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .pn-step {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .pn-step-number {
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+  }
+
+  .form-card.pn-form-card {
+    padding: 2rem 2rem;
+  }
+
+  .pn-fields-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .pn-fields-row--two {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .pn-continue-btn {
+    min-width: 180px;
+  }
+
+  .pn-confirm-title {
+    font-size: 1.75rem;
+  }
+
+  .pn-confirm-card {
+    padding: 1.5rem;
+  }
+
+  .pn-confirm-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .pn-confirm-value {
+    text-align: left;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .pn-main {
+    padding: 1rem 1rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .pn-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .pn-hero-content {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .pn-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .pn-hero-image-wrapper::before {
+    width: 30%;
+  }
+
+  .pn-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .pn-hero-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .pn-hero-decor {
+    display: none;
+  }
+
+  .pn-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pn-step-divider {
+    display: none;
+  }
+
+  .pn-step {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .form-card.pn-form-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .pn-fields-row,
+  .pn-fields-row--two {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pn-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .pn-actions .btn3d {
+    width: 100%;
+  }
+
+  .pn-actions .hgb {
+    width: 100%;
+  }
+
+  .pn-continue-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .pn-confirm-title {
+    font-size: 1.5rem;
+  }
+
+  .pn-confirm-message {
+    font-size: 0.9375rem;
+  }
+
+  .pn-confirm-card {
+    padding: 1.25rem;
+  }
+
+  .pn-confirm-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ============================================
+   Responsive — Small phones (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .pn-main {
+    padding: 0.75rem 0.75rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .pn-hero {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .pn-back-link {
+    font-size: 0.8125rem;
+  }
+
+  .pn-hero-title {
+    font-size: 1.375rem;
+  }
+
+  .pn-hero-description {
+    font-size: 0.8125rem;
+  }
+
+  .form-card.pn-form-card {
+    padding: 1.25rem 1rem;
+    border-radius: 10px;
+  }
+
+  .pn-confirm-title {
+    font-size: 1.375rem;
+  }
+
+  .pn-confirm-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .pn-confirm-label,
+  .pn-confirm-value {
+    font-size: 0.875rem;
+  }
+
+  .pn-availability-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pn-dietary-note {
+    align-self: stretch;
+  }
+}

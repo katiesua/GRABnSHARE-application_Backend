@@ -1,0 +1,528 @@
+/* ============================================
+   OrganiserDashboard — Full dashboard layout
+   ============================================ */
+
+/* ── Page wrapper ─────────────────────────── */
+.od-page {
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.od-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.od-hero {
+  position: relative;
+  background-color: var(--latrobe-red-light);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 3rem 3.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 260px;
+}
+
+.od-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 55%;
+  max-width: 55%;
+}
+
+.od-hero-welcome {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.od-hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.od-hero-description {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* ── Hero campus image — blended right ────── */
+.od-hero-image-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.od-hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(to right, #FDEAEA, transparent);
+  z-index: 1;
+}
+
+.od-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Hero decorative circles ──────────────── */
+.od-hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.od-hero-decor--1 {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  left: -40px;
+}
+
+.od-hero-decor--2 {
+  width: 140px;
+  height: 140px;
+  bottom: -50px;
+  left: 40%;
+}
+
+/* ============================================
+   Action Cards
+   ============================================ */
+.od-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.od-action-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-grey);
+  background-color: var(--white);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.od-action-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.od-action-card--red {
+  background-color: var(--latrobe-red-light);
+}
+
+.od-action-card--blue {
+  background-color: var(--dashboard-blue-light);
+}
+
+.od-action-card--green {
+  background-color: var(--dashboard-green-light);
+}
+
+/* Icon circle */
+.od-action-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.od-action-card--red .od-action-card-icon {
+  background-color: rgba(226, 35, 27, 0.12);
+  color: var(--latrobe-red);
+}
+
+.od-action-card--blue .od-action-card-icon {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: #3B82F6;
+}
+
+.od-action-card--green .od-action-card-icon {
+  background-color: rgba(34, 197, 94, 0.12);
+  color: #22C55E;
+}
+
+.od-action-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+
+.od-action-card-desc {
+  font-size: 0.9rem;
+  color: var(--dark-grey);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.od-action-card .btn3d {
+  margin-top: auto;
+}
+
+/* ============================================
+   Activity Summary
+   ============================================ */
+.od-activity-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border-grey);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 2rem 2.5rem;
+}
+
+.od-activity-grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.od-activity-metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+.od-activity-metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.od-activity-metric-icon--calendar {
+  background-color: var(--dashboard-blue-light);
+  color: #3B82F6;
+}
+
+.od-activity-metric-icon--food {
+  background-color: var(--latrobe-red-light);
+  color: var(--latrobe-red);
+}
+
+.od-activity-metric-icon--users {
+  background-color: var(--dashboard-green-light);
+  color: #22C55E;
+}
+
+.od-activity-metric-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.od-activity-metric-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.2rem;
+}
+
+.od-activity-metric-sub {
+  font-size: 0.78rem;
+  color: var(--dark-grey);
+  line-height: 1.4;
+}
+
+.od-activity-divider {
+  width: 1px;
+  background-color: var(--border-grey);
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Recent Posts
+   ============================================ */
+.od-recent-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  border: 1px solid var(--border-grey);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  padding: 1.75rem 2rem;
+}
+
+.od-recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.od-recent-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--black);
+}
+
+.od-recent-header-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.od-recent-view-all {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.od-recent-view-all:hover {
+  background-color: var(--latrobe-red-light);
+}
+
+.od-recent-view-all:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+/* ── Empty state ──────────────────────────── */
+.od-recent-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.od-recent-empty-icon {
+  color: var(--border-grey);
+  margin-bottom: 0.75rem;
+}
+
+.od-recent-empty-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+  margin-bottom: 0.35rem;
+}
+
+.od-recent-empty-desc {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  line-height: 1.5;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .od-main {
+    padding: 1.5rem 1.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .od-hero {
+    padding: 2rem 2.5rem;
+    min-height: 220px;
+  }
+
+  .od-hero-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .od-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .od-hero-description {
+    font-size: 0.95rem;
+  }
+
+  .od-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .od-action-card {
+    padding: 1.5rem;
+  }
+
+  .od-action-card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .od-action-card-title {
+    font-size: 1.125rem;
+  }
+
+  .od-action-card-desc {
+    font-size: 0.85rem;
+  }
+
+  .od-activity-card {
+    padding: 1.5rem;
+  }
+
+  .od-activity-metric-number {
+    font-size: 1.625rem;
+  }
+
+  .od-recent-card {
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .od-main {
+    padding: 1rem 1rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .od-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .od-hero-content {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .od-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .od-hero-image-wrapper::before {
+    width: 30%;
+  }
+
+  .od-hero-welcome {
+    font-size: 0.8rem;
+  }
+
+  .od-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .od-hero-description {
+    font-size: 0.875rem;
+  }
+
+  .od-hero-decor {
+    display: none;
+  }
+
+  .od-actions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .od-action-card {
+    padding: 1.25rem;
+  }
+
+  .od-action-card-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.75rem;
+  }
+
+  .od-action-card-title {
+    font-size: 1.0625rem;
+  }
+
+  .od-action-card-desc {
+    font-size: 0.825rem;
+    margin-bottom: 1rem;
+  }
+
+  .od-activity-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .od-activity-grid {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .od-activity-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .od-activity-metric {
+    padding: 0;
+  }
+
+  .od-activity-metric-number {
+    font-size: 1.75rem;
+  }
+
+  .od-recent-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .od-recent-empty {
+    padding: 2rem 0.5rem;
+  }
+
+  .od-recent-empty-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+}

@@ -1,0 +1,62 @@
+/* ============================================
+   GRABnSHARE — Global Styles & CSS Reset
+   ============================================ */
+
+/* Box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root variables for the La Trobe-inspired colour palette */
+:root {
+  --latrobe-red: #E2231B;
+  --latrobe-red-hover: #C41E17;
+  --latrobe-red-light: #FDEAEA;
+  --black: #000000;
+  --dark-grey: #53565A;
+  --white: #FFFFFF;
+  --light-grey: #F5F5F5;
+  --border-grey: #D1D5DB;
+  --focus-ring: rgba(226, 35, 27, 0.35);
+  --dashboard-blue-light: #EFF4FF;
+  --dashboard-green-light: #F0FDF4;
+}
+
+/* Base body styles */
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+  background-color: var(--light-grey);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root element needs full height for centering */
+#root {
+  min-height: 100%;
+}
+
+/* Accessible focus styles */
+:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+/* Remove default button styles */
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Remove default input styles */
+input {
+  font-family: inherit;
+}

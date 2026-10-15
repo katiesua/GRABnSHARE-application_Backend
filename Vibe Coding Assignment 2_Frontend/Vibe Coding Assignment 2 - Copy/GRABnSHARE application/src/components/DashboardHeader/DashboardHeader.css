@@ -1,0 +1,204 @@
+/* ============================================
+   DashboardHeader — Organiser top navigation
+   ============================================ */
+
+.dh-header {
+  width: 100%;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-grey);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dh-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dh-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.dh-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+/* ── Identity area ────────────────────────── */
+.dh-identity {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dh-identity-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.dh-org-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.dh-org-role {
+  font-size: 0.75rem;
+  color: var(--dark-grey);
+}
+
+.dh-avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.dh-avatar-btn:hover {
+  background-color: var(--light-grey);
+}
+
+.dh-avatar-btn:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+}
+
+.dh-avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--latrobe-red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.dh-avatar-circle--student {
+  background-color: #2563EB;
+}
+
+.dh-chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--dark-grey);
+  transition: transform 0.2s ease;
+}
+
+.dh-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown menu ────────────────────────── */
+.dh-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background-color: var(--white);
+  border: 1px solid var(--border-grey);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.375rem 0;
+  z-index: 110;
+}
+
+.dh-menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: default;
+}
+
+.dh-menu-item--label {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.dh-menu-item--action {
+  cursor: pointer;
+  color: var(--dark-grey);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dh-menu-item--action:hover {
+  background-color: var(--light-grey);
+  color: var(--latrobe-red);
+}
+
+.dh-menu-item--action:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: -2px;
+}
+
+.dh-menu-divider {
+  height: 1px;
+  background-color: var(--border-grey);
+  margin: 0.25rem 0;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .dh-inner {
+    padding: 0.625rem 1.5rem;
+  }
+
+  .dh-logo {
+    height: 40px;
+  }
+
+  .dh-org-name {
+    font-size: 0.8125rem;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .dh-inner {
+    padding: 0.625rem 1rem;
+  }
+
+  .dh-logo {
+    height: 36px;
+  }
+
+  .dh-identity-text {
+    display: none;
+  }
+
+  .dh-avatar-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .dh-chevron {
+    display: none;
+  }
+}

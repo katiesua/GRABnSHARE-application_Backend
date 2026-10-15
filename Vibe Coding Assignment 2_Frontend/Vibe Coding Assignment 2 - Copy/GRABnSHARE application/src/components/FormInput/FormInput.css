@@ -1,0 +1,89 @@
+/* ============================================
+   FormInput — Reusable labelled text input
+   ============================================ */
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.form-input-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.form-input-field {
+  width: 100%;
+  min-height: 54px;
+  padding: 0.9375rem 1.125rem;
+  font-size: 1rem;
+  color: var(--black);
+  background-color: var(--white);
+  border: 1.5px solid var(--border-grey);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input-field::placeholder {
+  color: #9CA3AF;
+  font-size: 0.925rem;
+}
+
+.form-input-field:focus {
+  outline: none;
+  border-color: var(--latrobe-red);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ── Required asterisk ────────────────────── */
+.form-input-required {
+  color: var(--latrobe-red);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* ── Select field ─────────────────────────── */
+.form-input-field--select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%2353565A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-input-field--select option[value=""] {
+  color: #9CA3AF;
+}
+
+/* ── Error state ──────────────────────────── */
+.form-input-field--error {
+  border-color: var(--latrobe-red);
+}
+
+.form-input-field--error:focus {
+  border-color: var(--latrobe-red);
+  box-shadow: 0 0 0 3px rgba(226, 35, 27, 0.2);
+}
+
+.form-input-error {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--latrobe-red);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .form-input-field {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9375rem;
+  }
+}

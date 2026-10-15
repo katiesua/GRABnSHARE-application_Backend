@@ -1,0 +1,166 @@
+/* ============================================
+   Button3D — Reusable 3D tactile button
+   ============================================ */
+
+/* ── Base ──────────────────────────────────── */
+.btn3d {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 54px;
+  padding: 1rem 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+  -webkit-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ── Primary variant ──────────────────────── */
+.btn3d--primary {
+  color: var(--white);
+  background: linear-gradient(180deg, #EE3A33 0%, var(--latrobe-red) 100%);
+  box-shadow:
+    0 4px 0 0 #B51D17,
+    0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.btn3d--primary:hover {
+  background: linear-gradient(180deg, #E2231B 0%, var(--latrobe-red-hover) 100%);
+  box-shadow:
+    0 5px 0 0 #B51D17,
+    0 8px 18px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn3d--primary:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 1px 0 0 #B51D17,
+    0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Secondary variant ────────────────────── */
+.btn3d--secondary {
+  color: var(--dark-grey);
+  background: linear-gradient(180deg, var(--white) 0%, #F8F8F8 100%);
+  border: 1.5px solid var(--border-grey);
+  box-shadow:
+    0 3px 0 0 #C0C0C0,
+    0 5px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn3d--secondary:hover {
+  color: var(--latrobe-red);
+  border-color: var(--latrobe-red);
+  background: linear-gradient(180deg, #FFF8F8 0%, var(--latrobe-red-light) 100%);
+  box-shadow:
+    0 4px 0 0 #D4A0A0,
+    0 6px 16px rgba(226, 35, 27, 0.12);
+  transform: translateY(-1px);
+}
+
+.btn3d--secondary:active {
+  color: var(--latrobe-red);
+  transform: translateY(3px);
+  box-shadow:
+    0 1px 0 0 #C0C0C0,
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Focus visible ────────────────────────── */
+.btn3d:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 3px;
+}
+
+/* ── Disabled ─────────────────────────────── */
+.btn3d:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow:
+    0 2px 0 0 #999,
+    0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+.btn3d--secondary:disabled {
+  box-shadow:
+    0 2px 0 0 #D0D0D0,
+    0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Loading state ────────────────────────── */
+.btn3d--loading {
+  pointer-events: none;
+  cursor: wait;
+}
+
+.btn3d--loading .btn3d-content {
+  visibility: hidden;
+}
+
+.btn3d-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn3d-spinner::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: 50%;
+  animation: btn3d-spin 0.65s linear infinite;
+}
+
+@keyframes btn3d-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Icon slot ────────────────────────────── */
+.btn3d-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Content wrapper ──────────────────────── */
+.btn3d-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   Responsive — Small phones (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .btn3d {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    min-height: 48px;
+  }
+}

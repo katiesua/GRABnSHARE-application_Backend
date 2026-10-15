@@ -1,0 +1,682 @@
+/* ============================================
+   ScheduleFood — Schedule Food page
+   ============================================ */
+
+/* ── Page wrapper ─────────────────────────── */
+.sf-page {
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.sf-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.sf-hero {
+  position: relative;
+  background-color: var(--latrobe-red-light);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 2.5rem 3.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 240px;
+}
+
+.sf-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 55%;
+  max-width: 55%;
+}
+
+.sf-back-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.sf-back-link:hover {
+  color: var(--latrobe-red-hover);
+  text-decoration: underline;
+}
+
+.sf-back-link:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sf-hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.sf-hero-description {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Hero campus image — blended right ────── */
+.sf-hero-image-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.sf-hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(to right, #FDEAEA, transparent);
+  z-index: 1;
+}
+
+.sf-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Hero decorative circles ──────────────── */
+.sf-hero-decor {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sf-hero-decor--1 {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  left: -40px;
+}
+
+.sf-hero-decor--2 {
+  width: 140px;
+  height: 140px;
+  bottom: -50px;
+  left: 40%;
+}
+
+/* ============================================
+   Progress Steps Indicator
+   ============================================ */
+.sf-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sf-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sf-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sf-step--active {
+  background-color: var(--latrobe-red);
+  color: var(--white);
+}
+
+.sf-step--active .sf-step-number {
+  background-color: var(--white);
+  color: var(--latrobe-red);
+}
+
+.sf-step--completed {
+  background-color: var(--white);
+  color: var(--latrobe-red);
+}
+
+.sf-step--completed .sf-step-number {
+  background-color: var(--latrobe-red);
+  color: var(--white);
+}
+
+.sf-step--inactive {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--dark-grey);
+}
+
+.sf-step--inactive .sf-step-number {
+  background-color: var(--border-grey);
+  color: var(--white);
+}
+
+.sf-step-divider {
+  width: 32px;
+  height: 2px;
+  background-color: var(--border-grey);
+  border-radius: 1px;
+}
+
+/* ============================================
+   Form Area
+   ============================================ */
+.sf-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.form-card.sf-form-card {
+  max-width: 820px;
+  width: 100%;
+}
+
+/* ── Form layout ──────────────────────────── */
+.sf-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Field rows ───────────────────────────── */
+.sf-fields-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.sf-fields-row--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── Verified badge ───────────────────────── */
+.sf-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #16A34A;
+  padding: 0.375rem 0.875rem;
+  background-color: #F0FDF4;
+  border-radius: 100px;
+  width: fit-content;
+}
+
+.sf-verified-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #16A34A;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ── Dietary info note ────────────────────── */
+.sf-dietary-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #FFFbeb;
+  border: 1px solid #FDE68A;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  color: #92400E;
+  line-height: 1.5;
+  align-self: flex-end;
+}
+
+.sf-dietary-note-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ── Availability row & badge ─────────────── */
+.sf-availability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.25rem;
+  background-color: var(--light-grey);
+  border-radius: 10px;
+}
+
+.sf-availability-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--dark-grey);
+}
+
+.sf-availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.3rem 0.875rem;
+  border-radius: 100px;
+}
+
+.sf-availability-badge--upcoming {
+  background-color: var(--dashboard-blue-light);
+  color: #2563EB;
+  border: 1px solid #BFDBFE;
+}
+
+.sf-availability-badge--small {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+/* ── Transparency notice ──────────────────── */
+.sf-transparency-notice {
+  font-size: 0.8125rem;
+  color: #9CA3AF;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ============================================
+   Action Buttons
+   ============================================ */
+.sf-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-grey);
+}
+
+.sf-actions .btn3d {
+  width: auto;
+}
+
+.sf-continue-btn {
+  min-width: 200px;
+}
+
+/* ============================================
+   Confirmation Screen
+   ============================================ */
+.sf-confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sf-confirm-icon {
+  margin-bottom: 1.25rem;
+  animation: sf-confirm-pop 0.4s ease-out;
+}
+
+@keyframes sf-confirm-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.sf-confirm-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #16A34A;
+  margin-bottom: 0.5rem;
+}
+
+.sf-confirm-message {
+  font-size: 1.05rem;
+  color: var(--dark-grey);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+
+.sf-confirm-card {
+  width: 100%;
+  background-color: var(--white);
+  border: 1px solid var(--border-grey);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.sf-confirm-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+
+.sf-confirm-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.sf-confirm-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sf-confirm-label {
+  font-size: 0.9375rem;
+  color: var(--dark-grey);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.sf-confirm-value {
+  font-size: 0.9375rem;
+  color: var(--black);
+  font-weight: 600;
+  text-align: right;
+}
+
+.sf-confirm-value--highlight {
+  color: #2563EB;
+}
+
+.sf-confirm-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-grey);
+  margin: 0.25rem 0;
+}
+
+.sf-confirm-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.sf-confirm-back-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--latrobe-red);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sf-confirm-back-link:hover {
+  color: var(--latrobe-red-hover);
+  text-decoration: underline;
+}
+
+.sf-confirm-back-link:focus-visible {
+  outline: 2px solid var(--latrobe-red);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .sf-main {
+    padding: 1.5rem 1.5rem 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .sf-hero {
+    padding: 2rem 2.5rem;
+    min-height: 220px;
+  }
+
+  .sf-hero-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+
+  .sf-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .sf-hero-description {
+    font-size: 0.95rem;
+  }
+
+  .sf-fields-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .sf-continue-btn {
+    min-width: 180px;
+  }
+
+  .sf-confirm-title {
+    font-size: 1.75rem;
+  }
+
+  .sf-confirm-card {
+    padding: 1.5rem;
+  }
+
+  .sf-confirm-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .sf-confirm-value {
+    text-align: left;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .sf-main {
+    padding: 1rem 1rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .sf-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
+  }
+
+  .sf-hero-content {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .sf-hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin-top: 1.25rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .sf-hero-image-wrapper::before {
+    width: 30%;
+  }
+
+  .sf-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .sf-hero-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .sf-hero-decor {
+    display: none;
+  }
+
+  .sf-steps {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .sf-step-divider {
+    display: none;
+  }
+
+  .sf-step {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .form-card.sf-form-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+
+  .sf-fields-row,
+  .sf-fields-row--two {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sf-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .sf-actions .btn3d {
+    width: 100%;
+  }
+
+  .sf-continue-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .sf-confirm-title {
+    font-size: 1.5rem;
+  }
+
+  .sf-confirm-message {
+    font-size: 0.9375rem;
+  }
+
+  .sf-confirm-card {
+    padding: 1.25rem;
+  }
+
+  .sf-confirm-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ============================================
+   Responsive — Small phones (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .sf-main {
+    padding: 0.75rem 0.75rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .sf-hero {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .sf-back-link {
+    font-size: 0.8125rem;
+  }
+
+  .sf-hero-title {
+    font-size: 1.375rem;
+  }
+
+  .sf-hero-description {
+    font-size: 0.8125rem;
+  }
+
+  .form-card.sf-form-card {
+    padding: 1.25rem 1rem;
+    border-radius: 10px;
+  }
+
+  .sf-confirm-title {
+    font-size: 1.375rem;
+  }
+
+  .sf-confirm-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .sf-confirm-label,
+  .sf-confirm-value {
+    font-size: 0.875rem;
+  }
+
+  .sf-availability-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .sf-dietary-note {
+    align-self: stretch;
+  }
+}

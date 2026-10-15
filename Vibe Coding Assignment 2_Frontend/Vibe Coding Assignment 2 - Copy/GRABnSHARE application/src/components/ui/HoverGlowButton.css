@@ -1,0 +1,65 @@
+/* ============================================
+   HoverGlowButton — 21st.dev Animated Feature Button
+   Plain-CSS adaptation (no Tailwind required)
+   ============================================ */
+
+/* ── Base button ───────────────────────────── */
+.hgb {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;                        /* px-8 py-4 */
+  border: none;
+  border-radius: 0.5rem;                     /* rounded-lg */
+  font-family: inherit;
+  font-size: 1.25rem;                        /* text-xl */
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 10;                               /* z-10 */
+  min-height: 54px;
+  width: 100%;
+  transition: color 300ms ease;              /* transition-colors duration-300 */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ── Disabled state ────────────────────────── */
+.hgb--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Glow orb (follows cursor) ────────────── */
+.hgb__glow {
+  position: absolute;
+  width: 200px;                              /* w-[200px] */
+  height: 200px;                             /* h-[200px] */
+  border-radius: 9999px;                     /* rounded-full */
+  opacity: 0.5;                              /* opacity-50 */
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0); /* hidden by default */
+  transition: transform 400ms ease-out;      /* transition-transform duration-400 ease-out */
+  z-index: 0;
+}
+
+.hgb__glow--visible {
+  transform: translate(-50%, -50%) scale(1.2); /* scale-120 on hover */
+}
+
+/* ── Label (always above glow) ────────────── */
+.hgb__label {
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================
+   Responsive — Small phones (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+  .hgb {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+}

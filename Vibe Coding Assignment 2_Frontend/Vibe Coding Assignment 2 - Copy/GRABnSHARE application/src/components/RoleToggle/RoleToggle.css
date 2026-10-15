@@ -1,0 +1,66 @@
+/* ============================================
+   RoleToggle — Student / Organiser selector
+   ============================================ */
+
+.role-toggle {
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+
+.role-toggle-legend {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+
+.role-toggle-options {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.role-toggle-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 54px;
+  padding: 0.9375rem 1rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--dark-grey);
+  background-color: var(--white);
+  border: 1.5px solid var(--border-grey);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-toggle-option:hover {
+  border-color: var(--latrobe-red);
+  color: var(--latrobe-red);
+}
+
+.role-toggle-option--selected {
+  background-color: var(--latrobe-red);
+  border-color: var(--latrobe-red);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.role-toggle-option--selected:hover {
+  background-color: var(--latrobe-red-hover);
+  border-color: var(--latrobe-red-hover);
+  color: var(--white);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .role-toggle-option {
+    padding: 0.5625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

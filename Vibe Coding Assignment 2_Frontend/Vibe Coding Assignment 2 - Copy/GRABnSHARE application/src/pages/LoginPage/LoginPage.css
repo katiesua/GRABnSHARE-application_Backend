@@ -1,0 +1,408 @@
+/* ============================================
+   LoginPage — Polished modern two-column layout
+   ============================================ */
+
+/* Full-page wrapper */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Decorative corner shapes ─────────────── */
+.login-decor-top {
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.04);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-decor-bottom {
+  position: absolute;
+  bottom: -140px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(226, 35, 27, 0.03);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Hero Panel (left column, 55%) ────────── */
+.login-hero {
+  flex: 0 0 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 4rem 2rem;
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.login-hero-content {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Logo — centred, preserves aspect ratio */
+.login-hero-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.75rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Marquee tagline — criss-cross two lines */
+.login-hero-tagline {
+  margin-bottom: 1rem;
+}
+
+.login-hero-tagline-text {
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--latrobe-red);
+}
+
+/* Supporting description */
+.login-hero-description {
+  font-size: 1.1rem;
+  color: var(--dark-grey);
+  line-height: 1.65;
+  max-width: 440px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Feature Items — horizontal row ───────── */
+.login-hero-features {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-hero-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  flex: 1;
+}
+
+.login-hero-feature-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.login-hero-feature-divider {
+  width: 1px;
+  align-self: stretch;
+  background-color: var(--border-grey);
+  flex-shrink: 0;
+}
+
+.login-hero-feature-text {
+  text-align: left;
+}
+
+.login-hero-feature-text strong {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.15rem;
+}
+
+.login-hero-feature-text p {
+  font-size: 0.85rem;
+  color: var(--dark-grey);
+  line-height: 1.4;
+}
+
+/* ── Campus Image — top fade ──────────────── */
+.login-hero-campus-fade {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-top: 0.5rem;
+}
+
+.login-hero-campus-fade::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(to bottom, var(--white), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.login-hero-campus-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ── Form Panel (right column, 45%) ───────── */
+.login-form-panel {
+  flex: 0 0 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 3rem;
+  background-color: #FAFBFC;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form header */
+.login-form-header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.login-form-title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--latrobe-red);
+  margin-bottom: 0.4rem;
+}
+
+.login-form-subtitle {
+  font-size: 0.95rem;
+  font-style: normal;
+  color: var(--dark-grey);
+}
+
+/* Form layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+/* Privacy notice */
+.login-privacy-notice {
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+.login-privacy-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-grey);
+  margin-bottom: 1rem;
+}
+
+.login-privacy-content {
+  display: inline;
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  line-height: 1.5;
+}
+
+.login-privacy-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
+/* ============================================
+   Responsive — Tablet (768px and below)
+   ============================================ */
+@media (max-width: 768px) {
+  .login-hero {
+    flex: 0 0 50%;
+    padding: 2.5rem 2rem;
+  }
+
+  .login-hero-content {
+    max-width: 100%;
+  }
+
+  .login-hero-logo {
+    max-width: 220px;
+  }
+
+  .login-hero-tagline-text {
+    font-size: 1.75rem;
+  }
+
+  .login-hero-description {
+    font-size: 1rem;
+  }
+
+  .login-hero-features {
+    gap: 1rem;
+  }
+
+  .login-hero-feature-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .login-hero-feature-text strong {
+    font-size: 0.875rem;
+  }
+
+  .login-hero-feature-text p {
+    font-size: 0.8rem;
+  }
+
+  .login-form-panel {
+    flex: 0 0 50%;
+    padding: 2.5rem 2rem;
+  }
+
+  .login-form-title {
+    font-size: 1.375rem;
+  }
+}
+
+/* ============================================
+   Responsive — Mobile (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-decor-top,
+  .login-decor-bottom {
+    display: none;
+  }
+
+  .login-hero {
+    flex: 0 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .login-hero-content {
+    text-align: center;
+  }
+
+  .login-hero-logo {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .login-hero-tagline-text {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-hero-description {
+    display: none;
+  }
+
+  .login-hero-features {
+    display: none;
+  }
+
+  .login-hero-campus-fade {
+    display: none;
+  }
+
+  .login-form-panel {
+    flex: 1;
+    padding: 1.75rem 1rem;
+    align-items: flex-start;
+  }
+
+  .login-form-title {
+    font-size: 1.25rem;
+  }
+
+  .login-form {
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   Authentication additions (sign up / notices)
+   ============================================ */
+
+.login-auth-hint {
+  margin: -0.6rem 0 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.login-auth-error {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #b91c1c;
+}
+
+.login-auth-notice {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #f0f7ff;
+  color: #1d4ed8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.login-auth-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-auth-role-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.login-auth-role-value {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.login-auth-switch {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.login-auth-switch-btn {
+  border: none;
+  background: none;
+  color: #e2231b;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.login-auth-switch-btn:hover {
+  text-decoration: underline;
+}

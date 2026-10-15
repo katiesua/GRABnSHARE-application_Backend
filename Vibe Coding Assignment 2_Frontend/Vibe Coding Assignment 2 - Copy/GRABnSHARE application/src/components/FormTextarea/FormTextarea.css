@@ -1,0 +1,61 @@
+/* ============================================
+   FormTextarea — Reusable labelled textarea
+   ============================================ */
+
+.form-textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.form-textarea-field {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.9375rem 1.125rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--black);
+  background-color: var(--white);
+  border: 1.5px solid var(--border-grey);
+  border-radius: 10px;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-textarea-field::placeholder {
+  color: #9CA3AF;
+  font-size: 0.925rem;
+}
+
+.form-textarea-field:focus {
+  outline: none;
+  border-color: var(--latrobe-red);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ── Error state ──────────────────────────── */
+.form-textarea-field--error {
+  border-color: var(--latrobe-red);
+}
+
+.form-textarea-field--error:focus {
+  border-color: var(--latrobe-red);
+  box-shadow: 0 0 0 3px rgba(226, 35, 27, 0.2);
+}
+
+.form-textarea-error {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--latrobe-red);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+  .form-textarea-field {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9375rem;
+  }
+}
